@@ -7,7 +7,7 @@
                 <div class="col-lg">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">CREATE AN ACCOUNT</h1>
                         </div>
                         <form class="user" method="POST" action="<?= base_url('auth/regist') ?>">
                             <div class="form-group">
@@ -27,8 +27,8 @@
                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Register Account
+                            <button type="submit" class="btn btn-primary btn-user btn-block text-bold">
+                                REGISTER ACCOUNT
                             </button>
                         </form>
                         <hr>
