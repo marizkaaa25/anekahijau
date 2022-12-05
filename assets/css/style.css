@@ -2,119 +2,26 @@
     background-color: white;
 }
 .bg-hijau {
-    background: #2E696D;
+    background: #659E38;
 }
 .bg-abu {
     background: #F4F4F4;
 }
-.bg-cyan {
-    background: #8CC3BC;
-}
-.bg-cyanmuda {
-    background: #D8EEDE;
-}
 .text-hijau {
-    color: #2E696D;
+    color: #659E38;
 }
-.nunito {
-    font-family: 'nunito', sans-serif;
-    font-weight: bold;
-}
-.poppins {
-    font-family: 'poppins', sans-serif;
-    font-weight: bold;
+span{
+    font-weight: 900;
+    font-size: 1.5rem;
 }
 .nav-item {
-    font-size: 1.125rem;
-    padding-left: 1.25rem;
+    font-size: 1rem;
+    padding-left: 1rem;
 }
-.btn-daftar {
-    height: 40px;
-    width: 120px;
-    font-size: 17px;
-    background: white;
-    border: solid #2E696D;
-    color:#2E696D;
-    text-align: center;
-    border-radius: 20px;
-    text-decoration: none;
-}
-.btn-login {
-    height: 40px;
-    width: 120px;
-    font-size: 17px;
-    border: none;
-    color: white;
-    text-align: center;
-    border-radius: 20px;
-    text-decoration: none;
-}
-.text-jumbotron{
-    position: absolute;
-}
-h1.nunito {
-    font-size: 3.125rem;
-    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-}
-h2.nunito {
-    font-size: 2.5rem;
-    padding-bottom: 4px;
-    border-bottom: 8px solid #8CC3BC;
-    width: fit-content;
-}
-h3.nunito {
-    font-size: 2.25rem;
-}
-.btn-pesan {
-    width: 379px;
-    height: 60px;
-    background: linear-gradient(89.79deg, #4299A3 0.18%, #2E696D 99.82%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
-    border: none;
-    color: white;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-}
-.btn-pesan:hover,
-.btn-pesan:focus {
-    box-shadow: 0 0 1em 0.4em #8CC3BC;
-    transform: translateY(-0.1em);
-
-}
-.jbt{
-    z-index: 99;
-    position: absolute;
-}
-.hero-2 {
-    margin-top: 500px;
-    padding: 40px 0px;
-}
-h1.poppins{
-    font-size: 3.25rem;
-    text-align: center;
-}
-p.nunito{
+p{
     font-style: normal;
     font-weight: 400;
-    font-size: 2.25rem;
-    line-height: 3.1rem;
-}
-h2.poppins{
-    font-weight: 700;
-    font-size: 38px;
-    line-height: 60px;
-    margin-left: 100px;
-}
-.reason{
-    margin-right: 100px;
-}
-p.poppins{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 1rem;
 }
 .link-pesan {
     color: white;
@@ -125,20 +32,7 @@ p.poppins{
     margin-left: 100px;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
-ul{
-    padding-left: 0;
-    list-style-type: none;
-}
-ul li.nunito{
-    padding-left: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    background-image: url(../icons/check.svg);
-    background-position:0 50%;
-    background-size: 1.6rem 1.6rem;
-    background-repeat: no-repeat;
-}
+
 .detail {
     color: #2E696D;
     font-style: normal;
@@ -147,30 +41,20 @@ ul li.nunito{
     text-decoration: none;
 }
 .logo-brand {
-    font-family: 'Fredoka One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
+    font-style: bold;
+    font-weight: 900;
+    font-size: 2rem;
     line-height: 48px;
 }
-h5{
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: justify;
-}
-.contact {
-    font-family: 'Nunito';
-    font-weight: 400;
-    font-size: 20px;
-}
-.icon-contact {
-    padding-left: 25px;
+.icon {
+    font-size: 2rem;
+    color: black;
+    opacity: 0.75;
 }
 *{
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: reguler;
 }
 /* responsif */
 @media only screen and (max-width: 1000px) {
