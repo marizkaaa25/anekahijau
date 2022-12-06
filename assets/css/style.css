@@ -23,23 +23,6 @@ p{
     font-weight: 400;
     font-size: 1rem;
 }
-.link-pesan {
-    color: white;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    text-decoration: none;
-    margin-left: 100px;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.detail {
-    color: #2E696D;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    text-decoration: none;
-}
 .logo-brand {
     font-style: bold;
     font-weight: 900;
@@ -51,13 +34,21 @@ p{
     color: black;
     opacity: 0.75;
 }
+
+.card-footer{
+    background-color: white !important;
+    border-top: none;
+}
+.btn-success {
+    background-color: #659E38 !important;
+}
 *{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-weight: reguler;
 }
 /* responsif */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
     [class*="col-"] {
       width: 100%;
     }

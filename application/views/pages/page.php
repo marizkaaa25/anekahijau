@@ -36,10 +36,10 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="...">
+                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="hero 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="...">
+                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="hero 2">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -50,6 +50,29 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+            </div>
+        </div>
+    </section>
+    <!-- end hero  -->
+    <section>
+        <div class="container py-3">
+            <h3 class="pt-5 pb-3">Product kami</h3>
+            <div class="row row-cols-1 row-cols-md-4">
+                <?php foreach ($product as $prod) : ?>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="<?= base_url('assets/img/product/') . $prod->image ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $prod->nama ?></h5>
+                                <p class="card-text">Rp. <?= $prod->harga ?></p>
+                                <a href="#">Detail</a>
+                            </div>
+                            <div class="card-footer d-grid">
+                                <a href="https://wa.me/?6282229337599?text=Saya%20mengunjungi%20halaman%20web%20AnekaHijau.%20Saya%20ingin%20memesan%20tanaman." class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
