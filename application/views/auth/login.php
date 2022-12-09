@@ -11,6 +11,7 @@
                     <div class="row">
                         <div class="col-lg">
                             <div class="p-5">
+                                <a href="<?= base_url() ?>"><i class="fa-solid fa-arrow-left"></i> Back</a>
                                 <?= $this->session->flashdata('message'); ?>
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">L O G I N</h1>

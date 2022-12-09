@@ -17,6 +17,8 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ef55c44b8.js" crossorigin="anonymous"></script>
+
 
 </head>
 

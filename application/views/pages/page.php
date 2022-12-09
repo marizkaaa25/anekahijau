@@ -9,13 +9,13 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#catalog">Katalog</a>
+                        <a class="nav-link" href="<?= base_url() . '#katalog' ?>">Katalog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About US</a>
+                        <a class="nav-link" href="<?= base_url() . '#about' ?>">About US</a>
                     </li>
                 </ul>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -36,10 +36,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="hero 1">
+                        <img src="<?= base_url('assets/img/hero/1.png') ?>" class="d-block w-100" alt="hero 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="<?= base_url('assets/img/hero3.jpg') ?>" class="d-block w-100" alt="hero 2">
+                        <img src="<?= base_url('assets/img/hero/2.png') ?>" class="d-block w-100" alt="hero 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="<?= base_url('assets/img/hero/3.png') ?>" class="d-block w-100" alt="hero 2">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -54,18 +57,19 @@
         </div>
     </section>
     <!-- end hero  -->
-    <section>
+    <section id="katalog">
         <div class="container py-3">
             <h3 class="pt-5 pb-3">Product kami</h3>
             <div class="row row-cols-1 row-cols-md-4">
                 <?php foreach ($product as $prod) : ?>
-                    <div class="col">
+                    <div class="col my-3">
                         <div class="card h-100">
                             <img src="<?= base_url('assets/img/product/') . $prod->image ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $prod->nama ?></h5>
-                                <p class="card-text">Rp. <?= $prod->harga ?></p>
-                                <a href="#">Detail</a>
+                                <h5 class="card-title my-0"><?= $prod->nama ?></h5>
+                                <span class="badge bg-success text-dark bg-opacity-25 my-0"><?= $prod->kategori ?></span>
+                                <p class="card-text my-0">Rp. <?= $prod->harga ?></p>
+                                <small class="card-text"><?= $prod->deskripsi ?></small>
                             </div>
                             <div class="card-footer d-grid">
                                 <a href="https://wa.me/?6282229337599?text=Saya%20mengunjungi%20halaman%20web%20AnekaHijau.%20Saya%20ingin%20memesan%20tanaman." class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang</a>
@@ -76,4 +80,3 @@
             </div>
         </div>
     </section>
-    <!-- end hero  -->
