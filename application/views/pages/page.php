@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/7ef55c44b8.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="<?= base_url() ?>assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/style2.css" rel="stylesheet">
+    <title>AnekaHijau</title>
+</head>
+
 <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white shadow sticky-top">
@@ -60,23 +82,144 @@
     <section id="katalog">
         <div class="container py-3">
             <h3 class="pt-5 pb-3">Product kami</h3>
-            <div class="row row-cols-1 row-cols-md-4">
-                <?php foreach ($product as $prod) : ?>
-                    <div class="col my-3">
-                        <div class="card h-100">
-                            <img src="<?= base_url('assets/img/product/') . $prod->image ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title my-0"><?= $prod->nama ?></h5>
-                                <span class="badge bg-success text-dark bg-opacity-25 my-0"><?= $prod->kategori ?></span>
-                                <p class="card-text my-0">Rp. <?= $prod->harga ?></p>
-                                <small class="card-text"><?= $prod->deskripsi ?></small>
-                            </div>
-                            <div class="card-footer d-grid">
-                                <a href="https://wa.me/?6282229337599?text=Saya%20mengunjungi%20halaman%20web%20AnekaHijau.%20Saya%20ingin%20memesan%20tanaman." class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang</a>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-3 px-3">
+                    <div class="list-group">
+                        <h6>Price</h6>
+                        <input type="hidden" id="hidden_minimum_price" value="0" />
+                        <input type="hidden" id="hidden_maximum_price" value="40000" />
+                        <small class="mb-2" id="price_show">Rp. 1000 - Rp. 40000</small>
+                        <div id="price_range"></div>
                     </div>
-                <?php endforeach; ?>
+                </div>
+                <!-- <div class="col-5 mx-5">
+                    <h6 class="mb-3">Jenis</h6>
+                    <div class="list-group list-group-horizontal p-0">
+                        <?php
+                        foreach ($kategori_data->result_array() as $kat) {
+
+                        ?>
+                            <div class="list-group-item checkbox">
+                                <input type="checkbox" class="common_selector brand" value="<?php echo $kat['kategori']; ?>"> <?php echo $kat['kategori']; ?>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="col-4"></div> -->
+            </div>
+            <div align="center" id="pagination_link">
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 filter_data">
+
             </div>
         </div>
     </section>
+    <style>
+        #loading {
+            text-align: center;
+            background: url('<?= base_url() ?>assets/img/loader.gif') no-repeat center;
+            height: 150px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+
+            filter_data(1);
+
+            function filter_data(page) {
+                $('.filter_data').html('<div id="loading" style="" ></div>');
+                var action = 'fetch_data';
+                //var page = 1;
+                var minimum_price = $('#hidden_minimum_price').val();
+                var maximum_price = $('#hidden_maximum_price').val();
+                var kategori = get_filter('kategori');
+                $.ajax({
+                    url: "<?= base_url() ?>product/fetch_data/" + page,
+                    method: "POST",
+                    dataType: "JSON",
+                    data: {
+                        action: action,
+                        minimum_price: minimum_price,
+                        maximum_price: maximum_price,
+                        kategori: kategori
+                    },
+                    success: function(data) {
+                        $('.filter_data').html(data.product_list);
+                        $('#pagination_link').html(data.pagination_link);
+                    }
+                })
+            }
+
+            $('#price_range').slider({
+                range: true,
+                min: 1000,
+                max: 40000,
+                values: [1000, 40000],
+                step: 1000,
+                stop: function(event, ui) {
+                    //$('#price_show').show();
+                    $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
+                    $('#hidden_minimum_price').val(ui.values[0]);
+                    $('#hidden_maximum_price').val(ui.values[1]);
+                    filter_data(1);
+                }
+            });
+
+            function get_filter(kategori) {
+                var filter = [];
+                $('.' + kategori + ':checked').each(function() {
+                    filter.push($(this).val());
+                });
+                return filter;
+            }
+
+            $(document).on("click", ".pagination li a", function(event) {
+                event.preventDefault();
+                var page = $(this).data("ci-pagination-page");
+                filter_data(page);
+            });
+
+            $('.common_selector').click(function() {
+                filter_data(1);
+            });
+
+
+
+        });
+    </script>
+    <!-- footer -->
+    <footer class="bg-light pt-5 pb-2" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 px-4">
+                    <h2 class="logo-brand"><span>Aneka</span><span class="text-hijau">Hijau</span></h2>
+                    <p>AnekaHijau merupakan toko yang menjual beraneka ragam tanaman, mulai dari tanaman hias hingga tanaman obat keluarga.</p>
+                </div>
+                <div class="col-6 px-4">
+                    <p><i class="fa-solid fa-location-dot icon mx-3 ms-0"></i>Desa Balung, Kecamatan Kendit, Kabupaten Situbondo</p>
+                    <small>Developed by</small>
+                    <br>
+                    <small>Marizka Maulidina</small>
+                    <br>
+                    <a class="icon" href="https://www.linkedin.com/in/marizka-maulidina-b8b2591a9/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="icon" href="https://github.com/marizkaaa25"><i class="fa-brands fa-github"></i></a>
+                    <a class="icon" href="https://gitlab.com/marizkaaa25"><i class="fa-brands fa-gitlab"></i></a>
+                    <a class="icon" href="https://www.facebook.com/marizka.maulidina/"><i class="fa-brands fa-facebook"></i></a>
+                    <a class="icon" href="mailto:202410103009@mail.unej.ac.id"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <hr>
+            <p class="poppins text-center"> &copy 2022 Marizka Maulidina | FWD 1</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- script -->
+    <script src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
+    <script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

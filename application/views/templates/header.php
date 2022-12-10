@@ -12,5 +12,10 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-grid.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="<?= base_url() ?>assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/style2.css" rel="stylesheet">
     <title>AnekaHijau</title>
 </head>
