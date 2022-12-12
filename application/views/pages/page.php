@@ -57,15 +57,11 @@
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="<?= base_url('assets/img/hero/1.png') ?>" class="d-block w-100" alt="hero 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url('assets/img/hero/2.png') ?>" class="d-block w-100" alt="hero 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url('assets/img/hero/3.png') ?>" class="d-block w-100" alt="hero 2">
-                    </div>
+                    <?php foreach ($hero as $key => $rows) : ?>
+                        <div class="carousel-item <?php echo ($key == 0 ? 'active' : '') ?>">
+                            <img class="d-block w-100" src="<?= base_url('assets/img/hero/') . $rows['file_foto'] ?>" alt="Hero slide">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -220,6 +216,13 @@
     <!-- script -->
     <script src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
     <script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 3000
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -7,11 +7,12 @@ class Product extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Mfilter');
+        $this->load->model('Mfilter', 'M_heroUnit');
     }
 
     function index()
     {
+        $data['hero'] = $this->M_heroUnit->getHero();
         $data['kategori_data'] = $this->Mfilter->fetch_filter_type('kategori');
         $this->load->view('pages/page', $data);
     }
@@ -26,7 +27,7 @@ class Product extends CI_Controller
         $config = array();
         $config["base_url"] = "#";
         $config["total_rows"] = $this->Mfilter->count_all($minimum_price, $maximum_price, $kategori);
-        $config["per_page"] = 8;
+        $config["per_page"] = 20;
         $config["uri_segment"] = 3;
         $config["use_page_numbers"] = TRUE;
         $config["full_tag_open"] = '<ul class="pagination">';

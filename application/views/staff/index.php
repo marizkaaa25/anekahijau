@@ -26,10 +26,10 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar text-white accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center text-white" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-leaf"></i>
                 </div>
@@ -39,35 +39,30 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <li class="nav-item">
+                <a class="nav-link">
+                    <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
+                    <span class="badge bg-success text-white">Staff</span><br>
+                    <span class="text-white"><?= $user['name'] ?></span></a>
+
+            </li>
+
             <!-- Nav Item - Dashboard -->
             <div class="sidebar-heading">
                 Admin
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Product
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-leaf"></i>
-                    <span>My Product</span></a>
+                <a class="nav-link" href="<?= base_url('staff') ?>">
+                    <i class="fas fa-fw fa-tachometer-alt text-white"></i>
+                    <span class="text-white">Dashboard</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <!-- Heading -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout') ?>">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
+                    <i class="fas fa-sign-out-alt text-white"></i>
+                    <span class="text-white">Logout</span></a>
             </li>
 
 
@@ -87,40 +82,23 @@
 
             <!-- Main Content -->
             <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name'] ?></span>
-                                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?= base_url('auth/logout') ?>" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title ?></h1>
-
+                    <h3 class="h4 text-gray-800 my-3">Hero Website</h3>
+                    <hr>
+                    <h5 class="text-gray-800">Tambah Hero</h5>
+                    <form action="<?= base_url('staff/do_upload') ?>" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" name="nama" class=" form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gambar/File</label>
+                            <input type="file" name="file_foto" size="20" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                    </form>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -169,11 +147,10 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 
