@@ -3,11 +3,14 @@
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-8 mx-auto">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
+
             <div class="row">
                 <div class="col-lg">
                     <div class="p-5">
+                        <a href="<?= base_url('admin') ?>"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                        <?= $this->session->flashdata('message'); ?>
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">CREATE AN ACCOUNT</h1>
+                            <h1 class="h4 text-gray-900 mb-4">CREATE A NEW STAFF ACCOUNT</h1>
                         </div>
                         <form class="user" method="POST" action="<?= base_url('auth/regist') ?>">
                             <div class="form-group">
@@ -31,13 +34,6 @@
                                 REGISTER ACCOUNT
                             </button>
                         </form>
-                        <hr>
-                        <div class="text-center">
-                            <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="<?= base_url('auth') ?>">Already have an account? Login!</a>
-                        </div>
                     </div>
                 </div>
             </div>

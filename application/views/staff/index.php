@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <div class="sidebar-heading">
-                Admin
+                Staff
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('staff') ?>">
@@ -83,19 +83,72 @@
             <!-- Main Content -->
             <div id="content">
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid pt-3">
                     <!-- Page Heading -->
+                    <?= $this->session->flashdata('message'); ?>
                     <h3 class="h4 text-gray-800 my-3">Hero Website</h3>
-                    <hr>
+                    <!-- <hr> -->
                     <h5 class="text-gray-800">Tambah Hero</h5>
                     <form action="<?= base_url('staff/do_upload') ?>" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" name="nama" class=" form-control" required>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" class=" form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    <label>Gambar/File</label>
+                                    <input type="file" name="file_foto" size="20" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-2 pt-3 mt-3">
+                                <button type="submit" class="btn btn-success">Simpan</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Gambar/File</label>
-                            <input type="file" name="file_foto" size="20" class="form-control">
+                    </form>
+                    <!-- product  -->
+                    <hr>
+                    <h3 class="h4 text-gray-800 my-3">Product</h3>
+                    <!-- <hr> -->
+                    <h5 class="text-gray-800">Tambah Product</h5>
+                    <form action="<?= base_url('staff/do_upload_prod') ?>" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" class=" form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label>Kategori</label><br>
+                                    <select class=" form control form-select" name="kategori" aria-label="Default select example">
+                                        <option selected>--- Pilih Kategori ---</option>
+                                        <option value="Tanaman hias">Tanaman hias</option>
+                                        <option value="Tanaman obat">Tanaman obat</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <label>Harga</label>
+                                    <input type="text" name="harga" class=" form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label>Gambar/File</label>
+                                    <input type="file" name="image" size="20" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <textarea type="text" name="deskripsi" class=" form-control" required></textarea>
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </form>

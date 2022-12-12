@@ -41,7 +41,8 @@
 
             <li class="nav-item">
                 <a class="nav-link">
-                    <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>"><br>
+                    <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
+                    <span class="badge bg-success text-white">Admin</span><br>
                     <span class="text-white"><?= $user['name'] ?></span></a>
             </li>
 
@@ -53,19 +54,6 @@
                 <a class="nav-link" href="<?= base_url('admin') ?>">
                     <i class="fas fa-fw fa-tachometer-alt text-white"></i>
                     <span class="text-white">Dashboard</span></a>
-            </li>
-
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Product
-            </div>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-leaf text-white"></i>
-                    <span class="text-white">My Product</span></a>
             </li>
 
             <hr class="sidebar-divider">
@@ -97,7 +85,10 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800 my-3"><?= $title ?></h1>
+                    <h1 class="h2 text-gray-800 mt-3"><?= $title ?></h1>
+                    <a href="<?= base_url('auth/regist') ?>"> + Add New Staff</a>
+                    <hr>
+                    <h4 class="h4 text-gray-800 py-2">Hero Website</h4>
                 </div>
                 <!-- /.container-fluid -->
 
