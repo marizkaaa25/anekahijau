@@ -187,7 +187,7 @@
         });
     </script>
     <!-- footer -->
-    <footer class="bg-light pt-5 pb-2" id="about">
+    <footer class="bg-light pt-5" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-6 px-4">
@@ -208,7 +208,7 @@
                 </div>
             </div>
             <hr>
-            <p class="poppins text-center"> &copy 2022 Marizka Maulidina | FWD 1</p>
+            <p class="text-center"> &copy 2022 Marizka Maulidina | FWD 1</p>
         </div>
     </footer>
     <!-- end footer -->
@@ -219,7 +219,7 @@
     <script>
         $(document).ready(function() {
             $('.carousel').carousel({
-                interval: 3000
+                interval: 2000
             })
         })
     </script>

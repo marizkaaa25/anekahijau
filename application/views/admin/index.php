@@ -83,67 +83,93 @@
             <div id="content">
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid pt-3">
                     <!-- Page Heading -->
+                    <?= $this->session->flashdata('message'); ?>
                     <h1 class="h2 text-gray-800 mt-3"><?= $title ?></h1>
-                    <a href="<?= base_url('auth/regist') ?>"> + Add New Staff</a>
+                    <a href="<?= site_url('auth/regist') ?>"> + Add New Staff</a>
                     <hr>
                     <h4 class="h4 text-gray-800 py-2">Hero Website</h4>
+                    <div class="row row-cols-1 row-cols-md-4">
+                        <?php foreach ($hero as $key => $rows) : ?>
+                            <div class="col py-2">
+                                <div class="card h-100">
+                                    <img src="<?= base_url('assets/img/hero/') . $rows['file_foto'] ?>" class="card-img-top" alt="hero">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $rows['nama'] ?></h5>
+                                        <?php if ($rows['status'] == '0') {
+                                            $status = 'Belum Disetujui';
+                                        } elseif ($rows['status'] == '1') {
+                                            $status = 'Disetujui';
+                                        } else {
+                                            $status = 'Ditolak';
+                                        } ?>
+                                        <p class="card-text"><?= $status ?></p>
+                                        <a href="<?= site_url('admin/setuju/') . $rows['id']; ?>" type="submit" name="setuju" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                                        <a href="<?= site_url('admin/tolak/') . $rows['id']; ?>" type="submit" name="tolak" class="btn btn-warning"><i class="fas fa-thumbs-down"></i></a>
+                                        <a href="<?= site_url('admin/hapus/') . $rows['id']; ?>" type="submit" name="hapus" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <hr>
+                    <!-- <h4 class="h4 text-gray-800 py-2">Product</h4> -->
+
+                    <!-- /.container-fluid -->
+
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; AnekaHijau 2022</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- End of Content Wrapper -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; AnekaHijau 2022</span>
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Logout</a>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Logout</a>
-                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
+        <script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
 
 </body>
 
