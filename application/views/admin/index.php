@@ -114,6 +114,53 @@
                         <?php endforeach; ?>
                     </div>
                     <hr>
+                    <h4 class="h4 text-gray-800 py-2">Product</h4>
+                    <table class="table text-dark my-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Harga</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Deskripsi</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Setuju</th>
+                                <th scope="col">Tolak</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($products as $i => $product) : ?>
+                                <?php if ($product['product_status'] == '0') {
+                                    $status = 'Belum Disetujui';
+                                } elseif ($product['product_status'] == '1') {
+                                    $status = 'Disetujui';
+                                } else {
+                                    $status = 'Ditolak';
+                                } ?>
+                                <tr>
+                                    <th scope="row"><?= $i + 1 ?></th>
+                                    <td><?= $product['nama'] ?></td>
+                                    <td><?= $product['kategori'] ?></td>
+                                    <td><?= $product['harga'] ?></td>
+                                    <td> <img src="<?= base_url('assets/img/product/') . $product['image'] ?>" alt="<?= $product['image'] ?>" height="100"> </td>
+                                    <td><?= $product['deskripsi'] ?></td>
+                                    <td><?= $status ?></td>
+                                    <td>
+                                        <a href="<?= site_url('admin/setujuprod/') . $product['id']; ?>" type="submit" name="setujuprod" class="btn btn-primary"><i class="fas fa-thumbs-up"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= site_url('admin/tolakprod/') . $product['id']; ?>" type="submit" name="tolakprod" class="btn btn-warning"><i class="fas fa-thumbs-down"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= site_url('admin/delete/') . $product['id']; ?>" type="submit" name="delete" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                     <!-- <h4 class="h4 text-gray-800 py-2">Product</h4> -->
 
                     <!-- /.container-fluid -->

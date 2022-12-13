@@ -87,8 +87,7 @@
                     <!-- Page Heading -->
                     <?= $this->session->flashdata('message'); ?>
                     <h3 class="h4 text-gray-800 my-3">Hero Website</h3>
-                    <!-- <hr> -->
-                    <h5 class="text-gray-800">Tambah Hero</h5>
+                    <h5 class="text-gray-800 pt-2">Tambah Hero</h5>
                     <form action="<?= base_url('staff/do_upload') ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-3">
@@ -108,9 +107,30 @@
                             </div>
                         </div>
                     </form>
+                    <h5 class="text-gray-800 pt-2">Daftar Hero</h5>
+                    <div class="row row-cols-1 row-cols-md-4">
+                        <?php foreach ($hero as $key => $rows) : ?>
+                            <div class="col py-2">
+                                <div class="card h-100">
+                                    <img src="<?= base_url('assets/img/hero/') . $rows['file_foto'] ?>" class="card-img-top" alt="hero">
+                                    <div class="card-body pb-0">
+                                        <?php if ($rows['status'] == '0') {
+                                            $status = 'Belum Disetujui';
+                                        } elseif ($rows['status'] == '1') {
+                                            $status = 'Disetujui';
+                                        } else {
+                                            $status = 'Ditolak';
+                                        } ?>
+                                        <h6 class="card-title"><?= $rows['nama'] ?> | <?= $status ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                     <!-- product  -->
-                    <hr>
-                    <h3 class="h4 text-gray-800 my-3">Product</h3>
+                    <hr class="my-3">
+                    <?= $this->session->flashdata('message_prod'); ?>
+                    <h3 class="h4 text-gray-800 mb-3">Product</h3>
                     <!-- <hr> -->
                     <h5 class="text-gray-800">Tambah Product</h5>
                     <form action="<?= base_url('staff/do_upload_prod') ?>" method="POST" enctype="multipart/form-data">
@@ -152,6 +172,49 @@
                         </div>
                         <button type="submit" class="btn btn-success">Simpan</button>
                     </form>
+                    <h5 class="text-gray-800 pt-2">Daftar Product</h5>
+                    <table class="table text-dark my-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">No.</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Harga</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Deskripsi</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($products as $i => $product) : ?>
+                                <?php if ($product['product_status'] == '0') {
+                                    $status = 'Belum Disetujui';
+                                } elseif ($product['product_status'] == '1') {
+                                    $status = 'Disetujui';
+                                } else {
+                                    $status = 'Ditolak';
+                                } ?>
+                                <tr>
+                                    <th scope="row"><?= $i + 1 ?></th>
+                                    <td><?= $product['nama'] ?></td>
+                                    <td><?= $product['kategori'] ?></td>
+                                    <td><?= $product['harga'] ?></td>
+                                    <td> <img src="<?= base_url('assets/img/product/') . $product['image'] ?>" alt="<?= $product['image'] ?>" height="100"> </td>
+                                    <td><?= $product['deskripsi'] ?></td>
+                                    <td><?= $status ?></td>
+                                    <td>
+                                        <a href="<?= site_url('staff/update/') . $product['id']; ?>" type="submit" name="update" class="btn btn-warning"><i class="fas fa-pen"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= site_url('staff/delete/') . $product['id']; ?>" type="submit" name="delete" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.container-fluid -->
 

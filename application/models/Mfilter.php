@@ -71,4 +71,37 @@ class Mfilter extends CI_Model
         $data = $this->db->query($query);
         return $data->num_rows();
     }
+
+    public function getAllProduct()
+    {
+        $this->db->select("*");
+        $this->db->from('product');
+        $get = $this->db->get();
+        return $get->result_array();
+    }
+
+    public function delete($data)
+    {
+        $this->db->select("*");
+        $this->db->from('product');
+        $this->db->where('id', $data['id']);
+        $this->db->delete('product', $data);
+    }
+
+    public function getProd($id)
+    {
+        $this->db->select("*");
+        $this->db->from('product');
+        $this->db->where('id', $id);
+        $get = $this->db->get();
+        return $get->row_array();
+    }
+
+    public function acc($data)
+    {
+        $this->db->select("*");
+        $this->db->from('product');
+        $this->db->where('id', $data['id']);
+        $this->db->update('product', $data);
+    }
 }
