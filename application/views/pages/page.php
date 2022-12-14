@@ -31,17 +31,20 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?= site_url() ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url() . '#katalog' ?>">Katalog</a>
+                        <a class="nav-link" href="<?= site_url() . '#katalog' ?>">Katalog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url() . '#about' ?>">About US</a>
+                        <a class="nav-link" href="<?= site_url() . '#about' ?>">About US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= site_url('cari') ?>">Cari <i class="fa fa-search"></i></a>
                     </li>
                 </ul>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button onclick="location.href='<?= base_url('auth') ?>'" class="btn btn-outline-success" type="button">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+                    <button onclick="location.href='<?= site_url('auth') ?>'" class="btn btn-outline-success" type="button">Login <i class="fa-solid fa-right-to-bracket"></i></button>
                 </div>
             </div>
         </div>
@@ -79,7 +82,7 @@
         <div class="container py-3">
             <h3 class="pt-5 pb-3">Product kami</h3>
             <div class="row">
-                <div class="col-3 px-3">
+                <div class="col-4 px-3">
                     <div class="list-group">
                         <h6>Price</h6>
                         <input type="hidden" id="hidden_minimum_price" value="0" />
@@ -88,30 +91,49 @@
                         <div id="price_range"></div>
                     </div>
                 </div>
-                <!-- <div class="col-5 mx-5">
-                    <h6 class="mb-3">Jenis</h6>
-                    <div class="list-group list-group-horizontal p-0">
-                        <?php
-                        foreach ($kategori_data->result_array() as $kat) {
-
-                        ?>
-                            <div class="list-group-item checkbox">
-                                <input type="checkbox" class="common_selector brand" value="<?php echo $kat['kategori']; ?>"> <?php echo $kat['kategori']; ?>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="col-4"></div> -->
-            </div>
-            <div align="center" id="pagination_link">
             </div>
             <div class="row row-cols-1 row-cols-md-4 filter_data">
 
             </div>
         </div>
     </section>
+    <!-- footer -->
+    <footer class="bg-light pt-5" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 px-4">
+                    <h2 class="logo-brand"><span>Aneka</span><span class="text-hijau">Hijau</span></h2>
+                    <p>AnekaHijau merupakan toko yang menjual beraneka ragam tanaman, mulai dari tanaman hias hingga tanaman obat keluarga.</p>
+                </div>
+                <div class="col-6 px-4">
+                    <p><i class="fa-solid fa-location-dot icon mx-3 ms-0"></i>Desa Balung, Kecamatan Kendit, Kabupaten Situbondo</p>
+                    <small>Developed by</small>
+                    <br>
+                    <small>Marizka Maulidina</small>
+                    <br>
+                    <a class="icon" href="https://www.linkedin.com/in/marizka-maulidina-b8b2591a9/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="icon" href="https://github.com/marizkaaa25"><i class="fa-brands fa-github"></i></a>
+                    <a class="icon" href="https://gitlab.com/marizkaaa25"><i class="fa-brands fa-gitlab"></i></a>
+                    <a class="icon" href="https://www.facebook.com/marizka.maulidina/"><i class="fa-brands fa-facebook"></i></a>
+                    <a class="icon" href="mailto:202410103009@mail.unej.ac.id"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center"> &copy 2022 Marizka Maulidina | FWD 1</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- script -->
+    <script src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
+    <script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 2000
+            })
+        })
+    </script>
     <style>
         #loading {
             text-align: center;
@@ -185,43 +207,6 @@
 
 
         });
-    </script>
-    <!-- footer -->
-    <footer class="bg-light pt-5" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 px-4">
-                    <h2 class="logo-brand"><span>Aneka</span><span class="text-hijau">Hijau</span></h2>
-                    <p>AnekaHijau merupakan toko yang menjual beraneka ragam tanaman, mulai dari tanaman hias hingga tanaman obat keluarga.</p>
-                </div>
-                <div class="col-6 px-4">
-                    <p><i class="fa-solid fa-location-dot icon mx-3 ms-0"></i>Desa Balung, Kecamatan Kendit, Kabupaten Situbondo</p>
-                    <small>Developed by</small>
-                    <br>
-                    <small>Marizka Maulidina</small>
-                    <br>
-                    <a class="icon" href="https://www.linkedin.com/in/marizka-maulidina-b8b2591a9/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a class="icon" href="https://github.com/marizkaaa25"><i class="fa-brands fa-github"></i></a>
-                    <a class="icon" href="https://gitlab.com/marizkaaa25"><i class="fa-brands fa-gitlab"></i></a>
-                    <a class="icon" href="https://www.facebook.com/marizka.maulidina/"><i class="fa-brands fa-facebook"></i></a>
-                    <a class="icon" href="mailto:202410103009@mail.unej.ac.id"><i class="fa-solid fa-envelope"></i></a>
-                </div>
-            </div>
-            <hr>
-            <p class="text-center"> &copy 2022 Marizka Maulidina | FWD 1</p>
-        </div>
-    </footer>
-    <!-- end footer -->
-
-    <!-- script -->
-    <script src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
-    <script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.carousel').carousel({
-                interval: 2000
-            })
-        })
     </script>
 </body>
 

@@ -48,20 +48,20 @@ class Mfilter extends CI_Model
                     <div class="card h-100">
                     <img src="' . base_url() . 'assets/img/product/' . $prod['image'] . '" class="card-img-top" alt="foto">
                         <div class="card-body">
-                        <h5 class="card-title my-0">' . $prod['nama'] . '</h5>
-                        <span class="badge bg-success text-dark bg-opacity-25 my-0">' . $prod['kategori'] . '</span>
+                            <h5 class="card-title my-0">' . $prod['nama'] . '</h5>
+                            <span class="badge bg-success text-dark bg-opacity-25 my-0">' . $prod['kategori'] . '</span>
                             <p class="card-text my-0 text-success text-bold">Rp. ' . $prod['harga'] . ',-</p>
                             <small class="card-text">' . $prod['deskripsi'] . '</small>
-                            </div>
-                            <div class="card-footer d-grid">
+                        </div>
+                        <div class="card-footer d-grid">
                             <a href="https://wa.me/?6282229337599?text=Saya%20mengunjungi%20halaman%20web%20AnekaHijau.%20Saya%20ingin%20memesan%20tanaman." class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang</a>
-                            </div>
-                            </div>
+                        </div>
+                    </div>
                 </div>
                 ';
             }
         } else {
-            $output = '<h3>Mohon maaf, data Tidak ditemukan!</h3>';
+            $output = '<h3 class="py-4">Mohon maaf, data Tidak ditemukan!</h3>';
         }
         return $output;
     }

@@ -52,7 +52,7 @@
                 Staff
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('staff') ?>">
+                <a class="nav-link" href="<?= site_url('staff') ?>">
                     <i class="fas fa-fw fa-tachometer-alt text-white"></i>
                     <span class="text-white">Dashboard</span></a>
             </li>
@@ -60,7 +60,7 @@
             <hr class="sidebar-divider">
             <!-- Heading -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('auth/logout') ?>">
+                <a class="nav-link" href="<?= site_url('auth/logout') ?>">
                     <i class="fas fa-sign-out-alt text-white"></i>
                     <span class="text-white">Logout</span></a>
             </li>
@@ -88,7 +88,7 @@
                     <?= $this->session->flashdata('message'); ?>
                     <h3 class="h4 text-gray-800 my-3">Hero Website</h3>
                     <h5 class="text-gray-800 pt-2">Tambah Hero</h5>
-                    <form action="<?= base_url('staff/do_upload') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= site_url('staff/do_upload') ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-3">
                                 <div class="form-group">
@@ -255,7 +255,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Logout</a>
+                    <a class="btn btn-primary" href="<?= site_url('auth/logout') ?>">Logout</a>
                 </div>
             </div>
         </div>

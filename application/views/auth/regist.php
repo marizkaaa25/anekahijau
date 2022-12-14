@@ -7,12 +7,12 @@
             <div class="row">
                 <div class="col-lg">
                     <div class="p-5">
-                        <a href="<?= base_url('admin') ?>"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                        <a href="<?= site_url('admin') ?>"><i class="fa-solid fa-arrow-left"></i> Back</a>
                         <?= $this->session->flashdata('message'); ?>
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">CREATE A NEW STAFF ACCOUNT</h1>
                         </div>
-                        <form class="user" method="POST" action="<?= base_url('auth/regist') ?>">
+                        <form class="user" method="POST" action="<?= site_url('auth/regist') ?>">
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full Name" value="<?= set_value('name') ?>">
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
